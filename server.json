@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.hasdata/google-hotels",
   "title": "HasData Google Hotels",
-  "description": "Google Hotels search with nightly and total rates, price comparisons across booking sites, ratings, amenities and images, as JSON.",
+  "description": "Google Hotels search: rates, ratings, amenities and what each booking site charges, as JSON.",
   "version": "1.0.0",
   "websiteUrl": "https://hasdata.com/apis/google-hotels-api",
   "repository": {
