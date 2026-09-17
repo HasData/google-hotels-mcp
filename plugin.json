@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hasdata-google-hotels-mcp",
+  "version": "1.0.0",
+  "description": "Google Hotels MCP server for Cursor. Search hotels and vacation rentals by destination and dates, with nightly and total rates, price comparisons across booking sites, ratings, amenities and images, as structured JSON. Remote MCP server hosted by HasData, connects over streamable HTTP with your HasData API key.",
+  "author": {
+    "name": "HasData",
+    "url": "https://hasdata.com"
+  },
+  "homepage": "https://hasdata.com/apis/google-hotels-api",
+  "repository": "https://github.com/HasData/google-hotels-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "google-hotels",
+    "google-hotels-mcp",
+    "hotels",
+    "travel",
+    "vacation-rentals",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ]
+}
