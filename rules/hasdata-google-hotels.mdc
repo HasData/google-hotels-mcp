@@ -1,0 +1,28 @@
+---
+description: How to pull Google Hotels properties, rates and per-source pricing through the HasData MCP server
+alwaysApply: false
+---
+
+# Google Hotels through HasData
+
+One tool, `hasdata_google_travel_hotels_getGoogleHotels`, covering both halves of the site. With `q`, `checkInDate` and `checkOutDate` it searches. Add a `propertyToken` from any result and the same tool returns that one property with the rate at every source Google compares.
+
+## The failure that looks like success
+
+A destination Google cannot place still answers 200 with a full page of real hotels, somewhere else entirely. A bare city name can resolve to the wrong country the same way. Phrase `q` as `hotels in Barcelona` rather than `Barcelona`, pass `gl` when the country matters, and check `gpsCoordinates` on the first result before trusting the list.
+
+Dates behave the same way. A check-out before the check-in, or a stay in a year that has passed, is normalised by Google rather than refused, and the call returns properties as if nothing were wrong. Validate the range yourself when it came from a model. A missing date is the one date problem that does fail, with a 422 naming the field.
+
+## Rates are quoted two ways
+
+`ratePerNight` and `totalRate` each carry `lowest`, which includes taxes and fees, and `beforeTaxesFees`, which does not. A property may have only one of them. Ranking a list that mixes the two produces an order that means nothing, so pick one and say which.
+
+Each also carries an `extracted*` number beside the raw string. Compare on the numbers and print the strings.
+
+## Filters and guests
+
+`sortBy` takes `lowestPrice`, `highestRating` or `mostReviewed`, and Google's own order applies when it is absent. `rating` is an enum of `threePointFivePlus`, `fourPlus` and `fourPointFivePlus` rather than a number. `propertyType__` and `amenity__` values are prefixed `hotel*` or `vacation*` to match what you are searching, and `vacationRentals` switches the search itself.
+
+The guest mix caps at six people in total. `brands` takes ids, and the search response returns the whole brand tree carrying them.
+
+Opening a property is a second billed call, so open the shortlist rather than the page.
