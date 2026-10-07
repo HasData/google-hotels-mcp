@@ -14,6 +14,7 @@ https://mcp.hasdata.com/mcp?apis=google_travel_hotels
 [![tool contract](https://github.com/HasData/google-hotels-mcp/actions/workflows/contract.yml/badge.svg)](https://github.com/HasData/google-hotels-mcp/actions/workflows/contract.yml)
 [![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://modelcontextprotocol.io)
 [![Tools](https://img.shields.io/badge/tools-1-10b981?style=flat-square)](#tools)
+- [Prompts and resources](#prompts-and-resources)
 [![npm](https://img.shields.io/npm/v/@hasdata/google-hotels-mcp?style=flat-square&logo=npm&label=npm&color=cb3837)](https://www.npmjs.com/package/@hasdata/google-hotels-mcp)
 [![PyPI](https://img.shields.io/pypi/v/hasdata-google-hotels-mcp?style=flat-square&logo=pypi&logoColor=white&label=PyPI&color=3775a9)](https://pypi.org/project/hasdata-google-hotels-mcp/)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
@@ -257,6 +258,22 @@ Pass `propertyToken` from any search result back into the same tool, keeping the
   "phone": "+34 931 74 05 28"
 }
 ```
+
+## Prompts and resources
+
+The server exposes 7 resources, one per parameter whose accepted values are a fixed list. Reading one is cheaper than learning the vocabulary from a rejected call, and it costs no credits. Each URI is `hasdata://google_travel/<parameter>`.
+
+| Parameter | Values | What it selects |
+| --- | ---: | --- |
+| `gl` | 245 | The two-letter country code for the country you want to limit the search to. |
+| `hl` | 159 | The two-letter language code for the language you want to use for the search. |
+| `currency` | 71 | Parameter defines the currency of the returned prices |
+| `sortBy` | 3 | Sort hotel results. Options: - `lowestPrice` — lowest price - `highestRating` — highest rating - `mostReviewed` — most reviewed |
+| `propertyType__` | 25 | List of property types to filter by (e.g., `hotelResort,hotelMotel`). Values prefixed `hotel*` apply when searching hotels (the default mode). Values prefixed `rental*` apply when `vacationRentals=true`. The two sets are disjoint because Google Hotels exposes different property-type catalogs for each mode — pass values matching the mode you're querying. |
+| `amenity__` | 32 | List of amenities to filter by (e.g., `hotelFreeWifi,hotelPool`). Values prefixed `hotel*` apply when searching hotels (the default mode). Values prefixed `rental*` apply when `vacationRentals=true`. The two sets are disjoint because Google Hotels exposes different amenity catalogs for each mode — pass values matching the mode you're querying. |
+| `rating` | 3 | Filter by minimum overall guest rating. Options: - `threePointFivePlus` — 3.5 stars or higher - `fourPlus` — 4.0 stars or higher - `fourPointFivePlus` — 4.5 stars or higher |
+
+The list is served without an API key, so a client can read it before a user has signed up.
 
 ## Errors and failure paths
 
