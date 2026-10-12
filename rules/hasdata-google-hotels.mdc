@@ -26,3 +26,7 @@ Each also carries an `extracted*` number beside the raw string. Compare on the n
 The guest mix caps at six people in total. `brands` takes ids, and the search response returns the whole brand tree carrying them.
 
 Opening a property is a second billed call, so open the shortlist rather than the page.
+
+## Prompts and resources
+
+The server also serves resources that spell out the accepted values of every parameter that takes a fixed list, each one at `hasdata://google_travel/<parameter>`. Reading one spends no credits and makes no upstream request, which beats discovering the vocabulary from a rejected call. Listing them needs no API key either, so a client can read them before the user has connected an account.
