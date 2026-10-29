@@ -2,7 +2,7 @@
 
 <!-- mcp-name: com.hasdata/google-hotels -->
 
-A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client one Google Hotels tool. Search hotels and vacation rentals for a destination and a pair of dates, then open any property in full with the rate every booking site is charging, ratings, a review breakdown by topic, amenities, photos and coordinates, all as structured JSON, with no Google account and no Places API quota.
+A hosted [Google Hotels MCP server](https://hasdata.com/mcp/google-hotels?utm_source=github&utm_medium=syndication&utm_campaign=google-hotels-mcp&utm_content=readme-intro) that gives Claude, Cursor, Windsurf and any other MCP client one Google Hotels tool. Search hotels and vacation rentals for a destination and a pair of dates, then open any property in full with the rate every booking site is charging, ratings, a review breakdown by topic, amenities, photos and coordinates, all as structured JSON, with no Google account and no Places API quota.
 
 **1,000 free credits every month, no card required**, which is about 100 hotel searches.
 
